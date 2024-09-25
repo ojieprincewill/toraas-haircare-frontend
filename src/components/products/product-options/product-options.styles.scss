@@ -1,0 +1,21 @@
+.product-options-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .product-option {
+    font-size: 18px;
+    font-weight: 550;
+    text-transform: capitalize;
+    padding: 20px;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #111;
+      border-bottom: 2px solid #68347d;
+    }
+  }
+}

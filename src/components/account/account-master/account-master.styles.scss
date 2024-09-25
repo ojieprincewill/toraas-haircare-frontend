@@ -1,0 +1,184 @@
+.account-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  gap: 20px;
+  width: 90%;
+  height: 100%;
+  padding: 40px 0;
+  margin: 0 auto;
+
+  .master-logo {
+    display: flex;
+    flex-direction: column;
+
+    .account-master {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background-color: #f0f0f0;
+      border: 1.5px solid #e6e6e6;
+      border-radius: 5px;
+      overflow: hidden;
+      height: max-content;
+
+      .master-option {
+        display: block;
+        width: 100%;
+        font-size: 16px;
+        text-transform: capitalize;
+        padding: 14.4px 33.6px;
+        clear: both;
+        white-space: nowrap;
+        background: none;
+        color: #222;
+        border: 0;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        .master-icon {
+          margin: 0 15px 0 0;
+          font-size: 18px;
+          vertical-align: middle;
+        }
+
+        &:first-child {
+          border-bottom: 1.2px solid #e6e6e6;
+        }
+
+        &:hover {
+          background-color: #945fa9;
+          color: #fff;
+        }
+
+        &.active,
+        &:active {
+          background-color: #68347d;
+          color: #fff;
+        }
+      }
+
+      .log-btn-cont {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.8rem 2.1rem;
+        border-top: 1.2px solid #e6e6e6;
+
+        .log-btn {
+          text-transform: capitalize;
+          background-color: #945fa9;
+          color: #fff;
+          border: 1px solid #945fa9;
+          text-align: center;
+          font-size: 16px;
+          padding: 12px 26px;
+          border-radius: 7px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: #222;
+            border: 1px solid #222;
+          }
+        }
+      }
+    }
+
+    .ml-image-cont {
+      width: 100%;
+      height: auto;
+
+      .ml-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .details {
+    background-color: #f0f0f0;
+    border: 1.5px solid #e6e6e6;
+    border-radius: 5px;
+    overflow: scroll;
+    height: 567px;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #a8b0f0bf;
+    }
+  }
+}
+
+//   @media only screen and (min-width: 600px) and (max-width: 1024px) {
+//     .account-container {
+//       display: grid;
+//       grid-template-columns: 1fr;
+//       gap: unset;
+
+//       .account-master {
+//         max-height: unset;
+//         margin: 0 0 20px;
+//       }
+//     }
+//   }
+
+//   @media only screen and (max-width: 600px) {
+//     .account-container {
+//       display: grid;
+//       grid-template-columns: 1fr;
+//       gap: unset;
+//       padding: 20px 0;
+
+//       .account-master {
+//         margin: 0 0 20px;
+//         height: auto;
+//         max-height: unset;
+
+//         &.hidden {
+//           display: none;
+//         }
+//       }
+
+//       .details {
+//         background-color: #f0f0f0;
+//         border: 1.5px solid #e6e6e6;
+//         border-radius: 5px;
+//         overflow: scroll;
+//         height: 567px;
+
+//         &.visible {
+//           display: block;
+//         }
+
+//         &.hidden {
+//           display: none;
+//         }
+
+//         .back-btn {
+//           display: block;
+//           text-align: center;
+//           text-transform: uppercase;
+//           font-weight: 600;
+//           padding: 8px 10px;
+//           color: #fff;
+//           background-color: #68347d;
+//           border: 1px solid #68347d;
+//           border-radius: 5px;
+//           cursor: pointer;
+//           margin: 15px;
+//           transition: all 0.3s ease;
+
+//           &:hover {
+//             color: #fff;
+//             background-color: #333;
+//             border: 1px solid #333;
+//           }
+//         }
+//       }
+//     }
+//   }

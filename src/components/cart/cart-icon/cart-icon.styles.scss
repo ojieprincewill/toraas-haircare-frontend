@@ -1,0 +1,31 @@
+.cart-cont {
+  position: relative;
+  padding: 0 15px;
+  width: max-content;
+
+  .cart-icon {
+    font-size: 25px;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #68347d;
+    }
+  }
+
+  .item-count {
+    position: absolute;
+    color: #fff;
+    background-color: #68347d;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 10px;
+    top: -4px;
+    right: 8px;
+  }
+}

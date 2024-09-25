@@ -1,0 +1,117 @@
+.checkout-content-cont {
+  width: 90%;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 10px;
+
+  .checkout-content-wrapper {
+    border: 1.5px solid #e6e6e6;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: 99%;
+    max-height: 71%;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #6e3e8296;
+    }
+
+    .content-header {
+      padding: 10px 20px 10px 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #e6e6e6;
+
+      .header-block {
+        text-transform: uppercase;
+        width: 150px;
+        color: #666;
+        font-size: 14px;
+        font-weight: 600;
+
+        &:nth-child(4) {
+          width: 100px;
+        }
+
+        &:last-child {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  .billing-wrapper {
+    border: 1.5px solid #e6e6e6;
+    padding: 20px;
+    height: auto;
+
+    .billing-title {
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 16px;
+    }
+
+    .total-amount {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 1px dashed #bbb;
+      padding: 0 0 10px;
+      margin: 0 0 16px;
+
+      .sub-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 20px 0 0;
+      }
+
+      .total {
+        font-size: 18px;
+        font-weight: 500;
+        color: #222;
+        margin: 0;
+      }
+    }
+
+    .shipping-details-cont {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 0 0 10px;
+      border-bottom: 1px dashed #bbb;
+
+      .subtitle {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+    .overall-amount {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px 0;
+      margin: 0 0 16px;
+
+      .sub-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 40px 0 0;
+      }
+
+      .total {
+        font-size: 18px;
+        font-weight: 500;
+        color: #222;
+        margin: 0;
+      }
+    }
+  }
+}

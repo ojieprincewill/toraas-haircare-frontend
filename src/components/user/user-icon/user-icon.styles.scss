@@ -1,0 +1,36 @@
+.user-cont {
+  position: relative;
+  padding: 0 15px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+
+  .user-name {
+    color: #444;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 20px;
+    margin: 0 10px 0 0;
+    font-weight: 500;
+  }
+
+  .user-icon {
+    font-size: 25px;
+    color: #444;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #68347d;
+    }
+
+    &:active,
+    &.active {
+      color: #68347d;
+    }
+  }
+}

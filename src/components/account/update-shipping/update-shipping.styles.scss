@@ -1,0 +1,107 @@
+.ship-wrapper {
+  width: 80%;
+  height: 80%;
+  margin: 50px auto;
+
+  .ship-breadcrumbs {
+    margin: 30px 0 40px;
+    display: flex;
+    align-items: center;
+
+    .ship-breadlink {
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: capitalize;
+      color: #555;
+      cursor: pointer;
+      padding: 0 5px;
+      transition: all 0.3s ease;
+
+      .ship-slash {
+        padding-left: 2px;
+      }
+
+      &:hover {
+        color: #ba8f44;
+
+        .ship-slash {
+          color: #555;
+        }
+      }
+    }
+
+    .ship-breadtitle {
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: capitalize;
+      color: #666;
+      padding-left: 2px;
+    }
+  }
+
+  .current-address-cont {
+    margin: 20px 0 40px;
+
+    .update-header {
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+      margin: 0 0 16px;
+      text-transform: uppercase;
+    }
+
+    .address {
+      font-size: 15px;
+      margin: 0 0 16px;
+      color: #777;
+
+      .title {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .new-address-cont {
+    margin: 40px 0;
+
+    .update-header {
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+      margin: 0 0 16px;
+      text-transform: uppercase;
+    }
+  }
+
+  .update-ship-btn {
+    width: 25%;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    color: #fff;
+    background-color: #68347d;
+    border: 1px solid #68347d;
+    border-radius: 5px;
+    padding: 12px 40px;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #fff;
+      background-color: #ba8f44;
+      border: 1px solid #ba8f44;
+    }
+  }
+}
+
+// @media only screen and (max-width: 1024px) {
+//     .current-address-cont {
+//       .address {
+//         .title {
+//           display: block;
+//         }
+//       }
+//     }
+//   }

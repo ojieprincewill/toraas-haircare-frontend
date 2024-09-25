@@ -1,0 +1,108 @@
+.sign-in-cont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+
+  .sign-in-title {
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .sign-in-btn {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    color: #68347d;
+    background-color: transparent;
+    border: 1px solid #68347d;
+    border-radius: 5px;
+    padding: 12px 40px;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #fff;
+      background-color: #68347d;
+    }
+  }
+
+  .cta-text {
+    text-align: right;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    margin: 12px 0;
+
+    .sign-up-link {
+      color: #68347d;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration-color: #68347d;
+      }
+    }
+  }
+
+  .error-message {
+    color: rgb(177, 63, 63);
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+}
+
+//   @media only screen and (min-width: 601px) and (max-width: 1024px) {
+//     .sign-in-container {
+//       width: 70vw;
+//       padding: unset;
+//       margin-bottom: 25px;
+
+//       .btn-flex {
+//         display: flex;
+//         align-items: flex-start;
+//         justify-content: unset;
+
+//         CustomButton {
+//           margin-right: 10px;
+//         }
+//       }
+//     }
+//   }
+
+//   @media only screen and (max-width: 600px) {
+//     .sign-in-container {
+//       width: 70vw;
+//       padding: unset;
+//       margin-bottom: 25px;
+
+//       .btn-flex {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: flex-start;
+//         align-items: flex-start;
+//       }
+//     }
+//   }
+
+//   @media only screen and (max-width: 280px) {
+//     .sign-in-container {
+//       width: 70vw;
+//       padding: unset;
+//       margin-bottom: 25px;
+
+//       .btn-flex {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: flex-start;
+//         align-items: flex-start;
+//       }
+//     }
+//   }

@@ -1,0 +1,25 @@
+.announcement-cont {
+  // position: fixed;
+  background-color: #68347d;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+  margin: 0;
+  position: relative;
+
+  .announcement-text {
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .announcement-close {
+    position: absolute;
+    right: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
