@@ -29,6 +29,12 @@
     cursor: pointer;
     transition: all 0.2s ease;
 
+    .dropdown-icon {
+      margin: 0 0 0 10px;
+      font-size: 18px;
+      vertical-align: middle;
+    }
+
     &:hover {
       background-color: #68347d;
       color: #fff;

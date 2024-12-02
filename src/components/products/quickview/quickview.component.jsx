@@ -44,7 +44,7 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
         </div>
         <div className="content-info">
           <h2 className="content-header">{title}</h2>
-          <p className="content-price">${price}</p>
+          <p className="content-price">&#8358;{price}</p>
           <p className="content-text">{description}</p>
 
           <div className="quick-btn-cont">

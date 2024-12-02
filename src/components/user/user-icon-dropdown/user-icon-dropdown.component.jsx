@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { auth } from "../../../firebase/firebase.utils";
 import { signOut } from "firebase/auth";
+import { IoLogInOutline, IoLogOutOutline } from "react-icons/io5";
+import { MdOutlineManageAccounts } from "react-icons/md";
 
 const UserIconDropdown = () => {
   const navigate = useNavigate();
@@ -37,22 +39,31 @@ const UserIconDropdown = () => {
   return (
     <div className="dropdown-cont">
       {currentUser ? (
-        <span className="dropdown-option" onClick={handleSignOut}>
-          sign out
-        </span>
+        <p className="dropdown-option" onClick={handleSignOut}>
+          sign out{" "}
+          <span className="dropdown-icon">
+            <IoLogOutOutline />
+          </span>
+        </p>
       ) : (
         <Link
           to="/signin"
           onClick={() => window.scrollTo(0, 0)}
           className="dropdown-option"
         >
-          sign in
+          sign in{" "}
+          <span className="dropdown-icon">
+            <IoLogInOutline />
+          </span>
         </Link>
       )}
 
-      <span className="dropdown-option" onClick={handleAccountLink}>
-        my account
-      </span>
+      <p className="dropdown-option" onClick={handleAccountLink}>
+        my account{" "}
+        <span className="dropdown-icon">
+          <MdOutlineManageAccounts />
+        </span>
+      </p>
     </div>
   );
 };

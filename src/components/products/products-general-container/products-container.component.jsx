@@ -6,10 +6,15 @@ import { fetchProducts } from "../../../features/products/productsSlice";
 import ProductOptions from "../product-options/product-options.component";
 import SearchButton from "../search-button/search-button.component";
 import SearchBar from "../search-bar/search-bar.component";
+import Spinner from "../../spinner-hoc/spinner.component";
 
 const ProductsContainer = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
+  const {
+    items: products,
+    status,
+    error,
+  } = useSelector((state) => state.products);
   const [isSearchActive, setIsSearchActive] = useState(false);
 
   useEffect(() => {
@@ -19,6 +24,10 @@ const ProductsContainer = () => {
   const toggleSearch = () => {
     setIsSearchActive(!isSearchActive);
   };
+
+  if (status === "loading") return <Spinner />;
+
+  if (status === "failed") return <div>Error: {error}</div>;
 
   return (
     <>

@@ -44,7 +44,7 @@ const Product = ({ product }) => {
         </div>
       </div>
       <p className="product-title">{title}</p>
-      <p className="product-price">${price}</p>
+      <p className="product-price">&#8358;{price}</p>
 
       {cartItem ? (
         <div className="quantity-cont">

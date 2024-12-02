@@ -23,7 +23,7 @@ const CheckoutItem = ({ cartItem }) => {
       <span className="checkout-quantity">
         <QuantityControl cartItem={cartItem} />
       </span>
-      <span className="checkout-price">${price}</span>
+      <span className="checkout-price">&#8358;{price}</span>
       <div className="remove-item-btn" onClick={handleClearItem}>
         <IoCloseOutline />
       </div>

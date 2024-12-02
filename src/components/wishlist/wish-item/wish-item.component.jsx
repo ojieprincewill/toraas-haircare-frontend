@@ -40,7 +40,7 @@ const WishItem = ({ product, handleSelectItem }) => {
       </div>
       <p className="wish-title">{title}</p>
       <p className="wish-category">{category}</p>
-      <p className="wish-price">${price}</p>
+      <p className="wish-price">&#8358;{price}</p>
     </div>
   );
 };

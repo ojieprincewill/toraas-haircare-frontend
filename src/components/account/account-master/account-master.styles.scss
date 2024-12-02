@@ -66,9 +66,9 @@
 
         .log-btn {
           text-transform: capitalize;
-          background-color: #945fa9;
+          background-color: #68347d;
           color: #fff;
-          border: 1px solid #945fa9;
+          border: 1px solid #68347d;
           text-align: center;
           font-size: 16px;
           padding: 12px 26px;
@@ -76,9 +76,15 @@
           cursor: pointer;
           transition: all 0.3s ease;
 
+          .log-btn-icon {
+            margin: 0 0 0 5px;
+            font-size: 18px;
+            vertical-align: middle;
+          }
+
           &:hover {
-            background-color: #222;
-            border: 1px solid #222;
+            background-color: #945fa9;
+            border: 1px solid #945fa9;
           }
         }
       }

@@ -15,6 +15,7 @@ import {
   IoBagOutline,
   IoSettingsOutline,
   IoBusinessOutline,
+  IoLogOutOutline,
 } from "react-icons/io5";
 
 const AccountMaster = () => {
@@ -119,7 +120,10 @@ const AccountMaster = () => {
           ))}
           <div className="log-btn-cont">
             <button className="log-btn" onClick={handleSignOut}>
-              sign out
+              sign out{" "}
+              <span className="log-btn-icon">
+                <IoLogOutOutline />
+              </span>
             </button>
           </div>
         </div>
@@ -160,7 +164,10 @@ const AccountMaster = () => {
           ))}
           <div className="log-btn-cont">
             <button className="log-btn" onClick={handleSignOut}>
-              sign out
+              sign out{" "}
+              <span className="log-btn-icon">
+                <IoLogOutOutline />
+              </span>
             </button>
           </div>
         </div>
