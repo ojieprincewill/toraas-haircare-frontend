@@ -16,7 +16,7 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
   const wishItems = useSelector((state) => state.wishlist.wishlistItems);
   const isItemInWishList = wishItems.some((item) => item.id === product.id);
 
-  const { image, title, price, description, category } = product;
+  const { image, title, price, description, categories } = product;
 
   const handleOrigins = () => {
     window.scrollTo(0, 0);
@@ -72,7 +72,13 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
             )}
           </div>
           <p className="content-category">
-            category: <span className="content-text">{category}</span>
+            category:{" "}
+            {categories.map((category, index) => (
+              <span className="content-text">
+                {category.name}
+                {index < categories.length - 1 && ", "}
+              </span>
+            ))}
           </p>
         </div>
       </div>

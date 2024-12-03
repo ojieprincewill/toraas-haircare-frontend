@@ -16,7 +16,9 @@ export const fetchProducts = createAsyncThunk(
       const data = await useFetch(
         "http://localhost:1337/api/products?populate=*"
       );
+
       console.log(data.data);
+
       return data.data.map((product) => ({
         id: product.id,
         title: product.title,
@@ -25,6 +27,7 @@ export const fetchProducts = createAsyncThunk(
           .join(" "),
         price: product.price,
         image: product.image ? `http://localhost:1337${product.image.url}` : "",
+        categories: product.categories,
       }));
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -38,8 +41,13 @@ const productsSlice = createSlice({
     items: [],
     status: "idle",
     error: null,
+    selectedCategory: null,
   },
-  reducers: {},
+  reducers: {
+    selectCategory: (state, action) => {
+      state.selectedCategory = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -55,5 +63,14 @@ const productsSlice = createSlice({
       });
   },
 });
+
+export const { selectCategory } = productsSlice.actions;
+export const selectProductsByCategory = (state) => {
+  const { items, selectedCategory } = state.products;
+  if (!selectedCategory) return items;
+  return items.filter((product) =>
+    product.categories.some((cat) => cat.name === selectedCategory)
+  );
+};
 
 export default productsSlice.reducer;
