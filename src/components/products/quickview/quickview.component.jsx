@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./quickview.styles.scss";
 import { IoCloseOutline } from "react-icons/io5";
 import AddToCart from "../add-to-cart/add-to-cart.component";
@@ -16,7 +16,32 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
   const wishItems = useSelector((state) => state.wishlist.wishlistItems);
   const isItemInWishList = wishItems.some((item) => item.id === product.id);
 
-  const { image, title, price, description, categories } = product;
+  const { image, title, description, categories, sizeandprice } = product;
+
+  const initialSize =
+    sizeandprice && sizeandprice.length > 0
+      ? sizeandprice[0]
+      : { size: "", price: product.price };
+  const [selectedSize, setSelectedSize] = useState(initialSize);
+  const [price, setPrice] = useState(initialSize.price);
+
+  useEffect(() => {
+    console.log("Product:", product);
+    console.log("Size and Price:", sizeandprice);
+    console.log("Selected Size:", selectedSize);
+  }, [product, sizeandprice, selectedSize]);
+
+  const handleSizeChange = (e) => {
+    const newSize = sizeandprice.find(
+      (size) => size.Size.toLowerCase() === e.target.value.toLowerCase()
+    );
+    if (newSize) {
+      setSelectedSize(newSize);
+      setPrice(newSize.price);
+    } else {
+      console.error("Selected size not found:", e.target.value);
+    }
+  };
 
   const handleOrigins = () => {
     window.scrollTo(0, 0);
@@ -47,6 +72,31 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
           <p className="content-price">&#8358;{price}</p>
           <p className="content-text">{description}</p>
 
+          {sizeandprice && sizeandprice.length > 0 && (
+            <div className="dropdown-container">
+              {" "}
+              <label htmlFor="size-select" className="dropdown-label">
+                hair growth oil (size):
+              </label>
+              <select
+                id="size-select"
+                value={selectedSize.Size}
+                onChange={handleSizeChange}
+                className="custom-dropdown"
+              >
+                {sizeandprice.map((size) => (
+                  <option
+                    key={size.id}
+                    value={size.Size}
+                    className="dropdown-option"
+                  >
+                    {size.Size}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+
           <div className="quick-btn-cont">
             {cartItem ? (
               <div className="cta-buttons">
@@ -74,7 +124,7 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
           <p className="content-category">
             category:{" "}
             {categories.map((category, index) => (
-              <span className="content-text">
+              <span key={index} className="content-text">
                 {category.name}
                 {index < categories.length - 1 && ", "}
               </span>

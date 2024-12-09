@@ -28,6 +28,7 @@ export const fetchProducts = createAsyncThunk(
         price: product.price,
         image: product.image ? `http://localhost:1337${product.image.url}` : "",
         categories: product.categories,
+        sizeandprice: product.sizeandprice,
       }));
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
