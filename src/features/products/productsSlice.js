@@ -48,6 +48,13 @@ const productsSlice = createSlice({
     selectCategory: (state, action) => {
       state.selectedCategory = action.payload;
     },
+    updateProductPrice: (state, action) => {
+      const { productId, price } = action.payload;
+      const product = state.items.find((item) => item.id === productId);
+      if (product) {
+        product.price = price;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -65,7 +72,7 @@ const productsSlice = createSlice({
   },
 });
 
-export const { selectCategory } = productsSlice.actions;
+export const { selectCategory, updateProductPrice } = productsSlice.actions;
 export const selectProductsByCategory = (state) => {
   const { items, selectedCategory } = state.products;
   if (!selectedCategory) return items;

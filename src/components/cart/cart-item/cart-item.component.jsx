@@ -3,6 +3,7 @@ import "./cart-item.styles.scss";
 import { IoCloseOutline } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { clearItem } from "../../../features/cart/cartSlice";
+import { toast } from "react-toastify";
 
 const CartItem = ({ product }) => {
   const dispatch = useDispatch();
@@ -10,6 +11,7 @@ const CartItem = ({ product }) => {
 
   const removeItemFromCart = () => {
     dispatch(clearItem(product));
+    toast.success(`${product.title} has been removed from cart`);
   };
 
   return (

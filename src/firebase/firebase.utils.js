@@ -79,10 +79,18 @@ export const listenToAuthChanges = (dispatch) => {
       const wishlistItems = snapShot.data()?.wishList || [];
       const address = snapShot.data()?.shippingAddress || {};
 
-      dispatch(setCartItems(cartItems));
+      const uniqueCartItems = cartItems.filter(
+        (item, index, self) => index === self.findIndex((t) => t.id === item.id)
+      );
+
+      dispatch(setCartItems(uniqueCartItems));
       dispatch(mergeCarts());
 
-      dispatch(setWishlistItems(wishlistItems));
+      const uniqueWishlistItems = wishlistItems.filter(
+        (item, index, self) => index === self.findIndex((t) => t.id === item.id)
+      );
+
+      dispatch(setWishlistItems(uniqueWishlistItems));
       dispatch(mergeWishlists());
 
       dispatch(updateShippingAddress(address));

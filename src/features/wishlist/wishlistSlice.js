@@ -43,12 +43,17 @@ export const wishlistSlice = createSlice({
     mergeWishlists: (state) => {
       const localWishlistItems =
         JSON.parse(localStorage.getItem("guestWishlist")) || [];
-
       const existingWishlistItems = Array.isArray(state.wishlistItems)
         ? state.wishlistItems
         : [];
-
-      state.wishlistItems = [...existingWishlistItems, ...localWishlistItems];
+      const combinedWishlist = [
+        ...existingWishlistItems,
+        ...localWishlistItems,
+      ];
+      const uniqueWishlist = combinedWishlist.filter(
+        (item, index, self) => index === self.findIndex((t) => t.id === item.id)
+      );
+      state.wishlistItems = uniqueWishlist;
       updateUserWishProfile(state.wishlistItems);
       localStorage.removeItem("guestWishlist");
     },

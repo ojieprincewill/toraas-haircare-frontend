@@ -2,6 +2,9 @@ import "./App.css";
 
 import { useEffect } from "react";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -38,6 +41,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/" element={<HomePage />} />

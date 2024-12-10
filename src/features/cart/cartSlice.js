@@ -43,12 +43,14 @@ export const cartSlice = createSlice({
     mergeCarts: (state) => {
       const localCartItems =
         JSON.parse(localStorage.getItem("guestCart")) || [];
-
       const existingCartItems = Array.isArray(state.cartItems)
         ? state.cartItems
         : [];
-
-      state.cartItems = [...existingCartItems, ...localCartItems];
+      const combinedCart = [...existingCartItems, ...localCartItems];
+      const uniqueCart = combinedCart.filter(
+        (item, index, self) => index === self.findIndex((t) => t.id === item.id)
+      );
+      state.cartItems = uniqueCart;
       updateUserCartProfile(state.cartItems);
       localStorage.removeItem("guestCart");
     },

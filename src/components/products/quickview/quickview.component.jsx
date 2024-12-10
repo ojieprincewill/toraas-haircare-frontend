@@ -4,12 +4,14 @@ import { IoCloseOutline } from "react-icons/io5";
 import AddToCart from "../add-to-cart/add-to-cart.component";
 import QuantityControl from "../quantity-control/quantity-control.component";
 import WishAdd from "../../wishlist/wish-add/wish-add.component";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateProductPrice } from "../../../features/products/productsSlice";
 import CtaButtons from "../../cta-buttons/cta-buttons.component";
 import { useNavigate } from "react-router-dom";
 
 const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const cartItem = cartItems.find((cartItem) => cartItem.id === product.id);
@@ -38,6 +40,9 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
     if (newSize) {
       setSelectedSize(newSize);
       setPrice(newSize.price);
+      dispatch(
+        updateProductPrice({ productId: product.id, price: newSize.price })
+      );
     } else {
       console.error("Selected size not found:", e.target.value);
     }
@@ -74,9 +79,8 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
 
           {sizeandprice && sizeandprice.length > 0 && (
             <div className="dropdown-container">
-              {" "}
               <label htmlFor="size-select" className="dropdown-label">
-                hair growth oil (size):
+                hair oil (size):
               </label>
               <select
                 id="size-select"
@@ -123,10 +127,10 @@ const Quickview = ({ product, closeQuickView, handleAddToCart }) => {
           </div>
           <p className="content-category">
             category:{" "}
-            {categories.map((category, index) => (
-              <span key={index} className="content-text">
+            {categories.slice(1).map((category, index) => (
+              <span key={index} className="category-text">
                 {category.name}
-                {index < categories.length - 1 && ", "}
+                {index < categories.slice(1).length - 1 && ", "}
               </span>
             ))}
           </p>

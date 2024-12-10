@@ -17,6 +17,7 @@ const ProductsContainer = () => {
   const { status } = useSelector((state) => state.products);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(12);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -24,6 +25,10 @@ const ProductsContainer = () => {
 
   const toggleSearch = () => {
     setIsSearchActive(!isSearchActive);
+  };
+
+  const showMoreProducts = () => {
+    setVisibleCount((prevCount) => prevCount + 12);
   };
 
   if (status === "loading") return <Spinner />;
@@ -56,20 +61,26 @@ const ProductsContainer = () => {
           isSearchActive={isSearchActive}
         />
       )}
-
       {searchQuery && filteredProducts.length === 0 && (
         <p className="error-message">No products match your search &#9785;</p>
       )}
-
       {!searchQuery && filteredProducts.length === 0 && (
         <p className="error-message">No products available &#9785;</p>
       )}
 
       <div className="product-list">
-        {filteredProducts.map((product) => (
+        {filteredProducts.slice(0, visibleCount).map((product) => (
           <Product key={product.id} product={product} />
         ))}
       </div>
+
+      {visibleCount < filteredProducts.length && (
+        <div className="show-btn-cont">
+          <button onClick={showMoreProducts} className="show-btn">
+            show more
+          </button>
+        </div>
+      )}
     </>
   );
 };
